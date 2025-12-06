@@ -1,13 +1,34 @@
 package kadai_021;
+
+import java.util.HashMap;
+
 public class Dictionary_Chapter21 {
-    public static void main(String[] args) {
-        // 辞書クラスのインスタンスを作成
-        Dictionary_Chapter21 dict = new Dictionary_Chapter21();
 
-        // 調べたい英単語の配列を準備
-        String[] wordsToSearch = {"apple", "banana", "grape", "orange"};
+    // 辞書データ（英単語 → 日本語）
+    private HashMap<String, String> dictionary = new HashMap<>();
 
-        // メソッドを呼び出して検索
-        dict.searchWords(wordsToSearch);
+    // コンストラクタ：辞書に10語登録
+    public Dictionary_Chapter21() {
+        dictionary.put("apple", "りんご");
+        dictionary.put("peach", "桃");
+        dictionary.put("banana", "バナナ");
+        dictionary.put("lemon", "レモン");
+        dictionary.put("pear", "梨");
+        dictionary.put("kiwi", "キウイ");
+        dictionary.put("strawberry", "いちご");
+        dictionary.put("grape", "ぶどう");
+        dictionary.put("muscat", "マスカット");
+        dictionary.put("cherry", "さくらんぼ");
+    }
+
+    // 英単語の配列を受け取り、意味を表示するメソッド
+    public void searchWords(String[] words) {
+        for (String word : words) {
+            if (dictionary.containsKey(word)) {
+                System.out.println(word + " の意味は " + dictionary.get(word) + " です。");
+            } else {
+                System.out.println(word + " は辞書に存在しません。");
+            }
+        }
     }
 }
